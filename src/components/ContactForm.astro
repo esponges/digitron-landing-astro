@@ -1,0 +1,124 @@
+---
+---
+
+<section class="contact-section">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <form class="contact-form" id="contactForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required aria-required="true" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required aria-required="true" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required aria-required="true"></textarea>
+      </div>
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    let isValid = true;
+    let errorMessage = '';
+
+    if (!name) {
+      isValid = false;
+      errorMessage += 'Name is required.\n';
+    }
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      isValid = false;
+      errorMessage += 'Valid email is required.\n';
+    }
+
+    if (!message) {
+      isValid = false;
+      errorMessage += 'Message is required.\n';
+    }
+
+    if (!isValid) {
+      alert(errorMessage);
+    } else {
+      alert('Form submitted successfully!');
+    }
+  });
+</script>
+
+<style>
+  .contact-section {
+    padding: 2rem;
+    background-color: var(--color-light);
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-size: var(--text-base);
+    margin-bottom: 0.5rem;
+  }
+
+  input, textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: var(--text-base);
+    transition: border-color 0.3s ease;
+  }
+
+  input:focus, textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+  }
+
+  .submit-button {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-button:hover {
+    background-color: var(--color-primary);
+  }
+</style>

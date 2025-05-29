@@ -1,0 +1,57 @@
+---
+import ContactForm from './ContactForm.astro';
+import ContactDetails from './ContactDetails.astro';
+---
+
+<section class="contact-section">
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-form-wrapper">
+        <ContactForm />
+      </div>
+      <div class="contact-details-wrapper">
+        <ContactDetails />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding: 2rem;
+    background-color: var(--color-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: var(--breakpoint-md)) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .contact-form-wrapper, .contact-details-wrapper {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+</style>
