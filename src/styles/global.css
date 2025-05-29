@@ -24,10 +24,10 @@
   --text-4xl: 2.25rem;
 
   /* Responsive Breakpoints */
-  --breakpoint-sm: 576px;
+  --breakpoint-sm: 320px;
   --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
 }
 
 /* Basic Typography */
@@ -63,4 +63,45 @@ p {
 
 .cta-button:focus {
   outline: 2px solid var(--color-accent);
+}
+
+/* Mobile Optimizations */
+button, .submit-button {
+  min-height: 44px; /* Touch-friendly button size */
+}
+
+input, textarea {
+  font-size: var(--text-base);
+  padding: 0.75rem; /* Ensure proper spacing for thumb navigation */
+}
+
+@media (max-width: var(--breakpoint-md)) {
+  body {
+    font-size: var(--text-sm); /* Readable font sizes on small screens */
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-content h1 {
+    font-size: var(--text-xl);
+  }
+
+  .hero-content p {
+    font-size: var(--text-base);
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    text-align: center;
+  }
 }

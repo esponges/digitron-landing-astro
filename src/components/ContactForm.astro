@@ -28,16 +28,17 @@
 </section>
 
 <script>
-  document.getElementById('contactForm').addEventListener('submit', async function (event) {
+  document.getElementById('contactForm')!.addEventListener('submit', async function (event) {
+    // todo this is the proper way to handle form submission in Astro as there're many type errors
     event.preventDefault();
 
-    const form = event.target;
+    const form = event.target!;
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const phone = form.phone.value.trim();
     const message = form.message.value.trim();
 
-    const feedback = document.getElementById('formFeedback');
+    const feedback = document.getElementById('formFeedback')!;
     const submitButton = form.querySelector('.submit-button');
 
     let isValid = true;
