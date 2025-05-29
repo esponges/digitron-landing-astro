@@ -2,13 +2,13 @@
 import contactData from '../data/contact.json';
 ---
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-content">
       <p class="company-name">Digitrion Copiadoras</p>
       <div class="contact-info">
         {contactData.map((contact, index) => (
-          <div key={index} class="contact-item">
+          <div class="contact-item">
             <p><strong>Phone:</strong> <a href={`tel:${contact.phone}`}>{contact.phone}</a></p>
             <p><strong>Email:</strong> <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
           </div>

@@ -46,25 +46,6 @@ p {
   line-height: 1.6;
 }
 
-/* Button Styles */
-.cta-button {
-  background-color: var(--color-secondary);
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  font-size: var(--text-base);
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: var(--color-primary);
-}
-
-.cta-button:focus {
-  outline: 2px solid var(--color-accent);
-}
-
 /* Mobile Optimizations */
 button, .submit-button {
   min-height: 44px; /* Touch-friendly button size */
@@ -78,30 +59,5 @@ input, textarea {
 @media (max-width: var(--breakpoint-md)) {
   body {
     font-size: var(--text-sm); /* Readable font sizes on small screens */
-  }
-
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hero-content h1 {
-    font-size: var(--text-xl);
-  }
-
-  .hero-content p {
-    font-size: var(--text-base);
-  }
-
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-content {
-    text-align: center;
   }
 }

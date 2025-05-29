@@ -6,8 +6,8 @@ import contactData from '../data/contact.json';
   <div class="header-container">
     <div class="logo">Digitrion Copiadoras</div>
     <div class="contact-info">
-      <a href="tel:{contactData.phone}" class="contact-link">{contactData.phone}</a>
-      <a href="mailto:{contactData.email}" class="contact-link">{contactData.email}</a>
+      <a href="tel:{contactData.phone}" class="contact-link">{contactData[0].phone}</a>
+      <a href="mailto:{contactData.email}" class="contact-link">{contactData[0].email}</a>
     </div>
   </div>
 </header>

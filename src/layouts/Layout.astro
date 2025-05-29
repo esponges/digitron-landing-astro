@@ -8,13 +8,31 @@ import contactData from '../data/contact.json';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Digitrion Copiadoras - Your trusted partner for office solutions." />
-    <title>Digitrion Copiadoras</title>
+    <meta name="description" content="Digitrion Copiadoras - Professional printing solutions for your business." />
+    <meta name="keywords" content="office printers, multifunction devices, printing solutions, Digitrion Copiadoras" />
+    <meta name="author" content="Digitrion Copiadoras" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Digitrion Copiadoras",
+        "description": "Professional printing solutions for your business.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Main Street",
+          "addressLocality": "Cityville",
+          "addressRegion": "Country",
+          "postalCode": "12345"
+        },
+        "telephone": "123-456-7890",
+        "email": "info@digitrion.com"
+      }
+    </script>
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
     <Header contactData={contactData} />
-    <main>
+    <main id="main-content">
       <slot></slot>
     </main>
     <Footer />

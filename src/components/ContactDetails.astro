@@ -5,7 +5,7 @@ import contactData from '../data/contact.json';
 <div class="contact-details">
   <h3>Contact Information</h3>
   {contactData.map((contact, index) => (
-    <div key={index} class="contact-item">
+    <div class="contact-item">
       <p><strong>Phone:</strong> <a href={`tel:${contact.phone}`}>{contact.phone}</a></p>
       <p><strong>Email:</strong> <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
       <p><strong>Business Hours:</strong> {contact.businessHours}</p>

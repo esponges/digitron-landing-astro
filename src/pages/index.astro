@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ProductShowcase from '../components/ProductShowcase.astro';
 import ContactSection from '../components/ContactSection.astro';
+import { trackPageView } from './analytics.js';
+
+trackPageView();
 ---
 
 <Layout>
