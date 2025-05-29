@@ -1,0 +1,57 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Professional Printing Solutions for Your Business</h1>
+    <p>At Digitrion Copiadoras, we provide top-notch printing solutions tailored to meet the unique needs of your business. From high-quality printers to exceptional customer service, we ensure your office runs smoothly and efficiently.</p>
+    <a href="#contact" class="cta-button">Get Quote</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    height: calc(100vh - 4rem); /* Full viewport height minus header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
+    padding: 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: 1rem;
+  }
+
+  .hero-content p {
+    font-size: var(--text-lg);
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: var(--text-base);
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: var(--color-primary);
+  }
+
+  @media (max-width: var(--breakpoint-md)) {
+    .hero-content h1 {
+      font-size: var(--text-xl);
+    }
+
+    .hero-content p {
+      font-size: var(--text-base);
+    }
+  }
+</style>
