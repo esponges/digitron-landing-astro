@@ -1,5 +1,8 @@
 ---
+import Header from '../components/Header.astro';
+import contactData from '../data/contact.json';
 ---
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,6 +12,7 @@
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
+    <Header contactData={contactData} />
     <main>
       <slot></slot>
     </main>
