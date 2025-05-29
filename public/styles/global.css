@@ -30,10 +30,6 @@
   --breakpoint-xl: 1200px;
 }
 
-main {
-  margin-top: 4rem;
-}
-
 /* Basic Typography */
 body {
   font-family: Arial, sans-serif;

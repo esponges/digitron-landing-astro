@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "Office Printer Pro",
+    "imagePath": "/images/printer-1.jpg",
+    "imageAlt": "Office Printer Pro",
+    "description": "High-quality office printer with fast printing speeds and wireless connectivity."
+  },
+  {
+    "id": "2",
+    "name": "Multifunction Device X",
+    "imagePath": "/images/printer-2.jpg",
+    "imageAlt": "Multifunction Device X",
+    "description": "All-in-one device for printing, scanning, and copying with advanced features."
+  },
+  {
+    "id": "3",
+    "name": "Compact Printer Z",
+    "imagePath": "/images/printer-3.jpg",
+    "imageAlt": "Compact Printer Z",
+    "description": "Compact and efficient printer perfect for small office spaces."
+  }
+]

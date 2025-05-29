@@ -1,0 +1,64 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  imagePath: string;
+  imageAlt: string;
+}
+
+const { name, description, imagePath, imageAlt } = Astro.props as Props;
+---
+
+<div class="product-card">
+  <img src={imagePath} alt={imageAlt} loading="lazy" class="product-image" />
+  <h2 class="product-name">{name}</h2>
+  <p class="product-description">{description}</p>
+  <a href="#contact" class="cta-button">Contact for Quote</a>
+</div>
+
+<style>
+  .product-card {
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-name {
+    font-size: var(--text-lg);
+    margin-bottom: 0.5rem;
+  }
+
+  .product-description {
+    font-size: var(--text-base);
+    margin-bottom: 1rem;
+  }
+
+  .cta-button {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: var(--text-base);
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: var(--color-primary);
+  }
+</style>
