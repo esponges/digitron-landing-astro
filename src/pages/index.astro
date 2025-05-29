@@ -1,8 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import ProductCard from '../components/ProductCard.astro';
-import products from '../data/products.json';
+import ProductShowcase from '../components/ProductShowcase.astro';
 ---
 
 <html lang="en">
@@ -16,9 +15,7 @@ import products from '../data/products.json';
 	<body>
 		<Layout>
 			<Hero />
-			<section>
-				<ProductCard {...products[0]} />
-			</section>
+			<ProductShowcase />
 		</Layout>
 	</body>
 </html>
