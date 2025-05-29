@@ -1,0 +1,65 @@
+---
+import contactData from '../data/contact.json';
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <p class="company-name">Digitrion Copiadoras</p>
+      <div class="contact-info">
+        {contactData.map((contact, index) => (
+          <div key={index} class="contact-item">
+            <p><strong>Phone:</strong> <a href={`tel:${contact.phone}`}>{contact.phone}</a></p>
+            <p><strong>Email:</strong> <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+          </div>
+        ))}
+      </div>
+      <p class="copyright">&copy; {new Date().getFullYear()} Digitrion Copiadoras. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 2rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .footer-content {
+    text-align: center;
+  }
+
+  .company-name {
+    font-size: var(--text-lg);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .contact-info {
+    margin-bottom: 1rem;
+  }
+
+  .contact-item {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .copyright {
+    font-size: var(--text-sm);
+  }
+</style>

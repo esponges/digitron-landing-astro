@@ -5,19 +5,8 @@ import ProductShowcase from '../components/ProductShowcase.astro';
 import ContactSection from '../components/ContactSection.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<Layout>
-			<Hero />
-			<ProductShowcase />
-			<ContactSection />
-		</Layout>
-	</body>
-</html>
+<Layout>
+  <Hero />
+  <ProductShowcase />
+  <ContactSection />
+</Layout>
