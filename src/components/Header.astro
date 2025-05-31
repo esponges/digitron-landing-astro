@@ -8,8 +8,14 @@ import contactData from '../data/contact.json';
       <img src="/images/digitron_logo.png" alt="Digitrion Copiadoras Logo" class="logo-image" />
     </div>
     <div class="contact-info">
-      <a href="tel:{contactData.phone}" class="contact-link">{contactData[0].phone}</a>
-      <a href="mailto:{contactData.email}" class="contact-link">{contactData[0].email}</a>
+      <a href="tel:{contactData.phone}" class="contact-link">
+        <i class="ri-phone-line"></i>
+        {contactData[0].phone}
+      </a>
+      <a href="mailto:{contactData.email}" class="contact-link">
+        <i class="ri-mail-line"></i>
+        {contactData[0].email}
+      </a>
     </div>
   </div>
 </header>
@@ -19,14 +25,22 @@ import contactData from '../data/contact.json';
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--color-primary);
-    color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensure header stays above other content */
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    color: var(--color-primary);
+    padding: 0.75rem 2rem;
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  header:hover {
+    box-shadow: var(--shadow-md);
   }
 
   .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,33 +53,46 @@ import contactData from '../data/contact.json';
 
   .logo-image {
     width: auto;
-    max-width: 100px; /* Limit width for responsiveness */
+    height: 40px;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-image:hover {
+    transform: scale(1.05);
   }
 
   .contact-info {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
+    align-items: center;
   }
 
   .contact-link {
-    color: white;
+    color: var(--color-primary);
     text-decoration: none;
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
   }
 
   .contact-link:hover {
-    text-decoration: underline;
+    background-color: var(--color-light);
+    transform: translateY(-1px);
   }
 
   @media (max-width: 768px) {
     .header-container {
       flex-direction: column;
-      align-items: flex-start;
+      gap: 1rem;
     }
 
     .contact-info {
-      flex-direction: column;
-      gap: 0.5rem;
+      gap: 1rem;
     }
   }
 </style>
