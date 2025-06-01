@@ -4,11 +4,5 @@
     "email": "info@digitrion.com",
     "businessHours": "Mon-Fri: 9am - 5pm",
     "address": "123 Main Street, Cityville, Country"
-  },
-  {
-    "phone": "987-654-3210",
-    "email": "support@digitrion.com",
-    "businessHours": "Sat-Sun: 10am - 4pm",
-    "address": "456 Elm Street, Townsville, Country"
   }
 ]
