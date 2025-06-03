@@ -4,6 +4,7 @@ import { trackFormSubmission } from '../pages/analytics.js';
 // Server-side form handling
 const errors = { name: '', email: '', message: '' };
 let status = 200;
+let showSuccessMessage = false;
 
 if (Astro.request.method === 'POST') {
   try {
@@ -53,8 +54,13 @@ if (Astro.request.method === 'POST') {
       // Track the submission
       trackFormSubmission({ name, email, phone, message });
       
-      // Redirect to thank you page or same page with success message
-      return Astro.redirect('/?success=true');
+      // Set success message flag
+      showSuccessMessage = true;
+      // Clear form data
+      data.delete('name');
+      data.delete('email');
+      data.delete('phone');
+      data.delete('message');
     }
   } catch (error) {
     console.error('Error processing form:', error);
@@ -65,15 +71,12 @@ if (Astro.request.method === 'POST') {
 
 // Set the response status
 Astro.response.status = status;
-
-// Check for success message from redirect
-const success = Astro.url.searchParams.get('success') === 'true';
 ---
 
 <section class="contact-section">
   <div class="container">
     <h2 class="section-title">Contact Us</h2>
-    {success && (
+    {showSuccessMessage && (
       <div class="feedback-message success-message">
         Thank you for your message! We will get back to you soon.
       </div>
