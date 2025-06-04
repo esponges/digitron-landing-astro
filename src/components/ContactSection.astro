@@ -1,6 +1,4 @@
 ---
-import ContactForm from './ContactForm.astro';
-
 const contactData = [
   {
     "phone": "123-456-7890",
@@ -11,28 +9,29 @@ const contactData = [
 ];
 ---
 
-<section class="contact-section">
-  <div class="container">
-    <h2 class="section-title">Get in Touch</h2>
-    <div class="contact-grid">
-      <div class="contact-form-wrapper">
-        {
-          /* contact details */
-          contactData.map((contact, index) => (
-            <div class="contact-details-wrapper">
-              <h3>Contact Information</h3>
-              <p><strong>Phone:</strong> <a href={`tel:${contact.phone}`}>{contact.phone}</a></p>
-              <p><strong>Email:</strong> <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
-              <p><strong>Business Hours:</strong> {contact.businessHours}</p>
-              {contact.address && <p><strong>Address:</strong> {contact.address}</p>}
-            </div>
-          ))
-        }
-        <ContactForm />
+<div>
+  <section class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="contact-grid">
+        <div class="contact-form-wrapper">
+          {
+            /* contact details */
+            contactData.map((contact, index) => (
+              <div class="contact-details-wrapper">
+                <h3>Contact Information</h3>
+                <p><strong>Phone:</strong> <a href={`tel:${contact.phone}`}>{contact.phone}</a></p>
+                <p><strong>Email:</strong> <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+                <p><strong>Business Hours:</strong> {contact.businessHours}</p>
+                {contact.address && <p><strong>Address:</strong> {contact.address}</p>}
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <style>
   .contact-details-wrapper {

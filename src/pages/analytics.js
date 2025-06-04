@@ -4,6 +4,6 @@ export function trackFormSubmission(data) {
 }
 
 export function trackPageView() {
-  console.log('Page view tracked');
+  // console.log('Page view tracked');
   // Add Google Analytics tracking logic here
 }
