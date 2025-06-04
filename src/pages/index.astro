@@ -7,11 +7,26 @@ import { trackPageView } from './analytics.js';
 
 trackPageView();
 
-// Parse URL parameters
+// Parse URL parameters with base64 decode
 const url = new URL(Astro.request.url);
-let showSuccessMessage = url.searchParams.get('success') === 'true';
-const errorsParam = url.searchParams.get('errors');
-const errors = errorsParam ? JSON.parse(decodeURIComponent(errorsParam)) : { name: '', email: '', message: '' };
+const successParam = url.searchParams.get('s');
+const errorsParam = url.searchParams.get('e');
+
+// Decode base64 parameters
+let showSuccessMessage = false;
+let errors = { name: '', email: '', message: '' };
+
+if (successParam) {
+  showSuccessMessage = atob(successParam) === 'true';
+}
+
+if (errorsParam) {
+  try {
+    errors = JSON.parse(atob(errorsParam));
+  } catch (e) {
+    console.error('Error decoding parameters:', e);
+  }
+}
 
 let status = 200;
 
@@ -74,8 +89,10 @@ if (Astro.request.method === 'POST') {
     status = 500;
     errors.name = 'There was an error submitting the form. Please try again later.';
   } finally {
-    // If there are errors, we will return the same page with errors
-    return Astro.redirect(`/?success=${showSuccessMessage}&errors=${JSON.stringify(errors)}#contact`);
+    // Base64 encode parameters before redirect
+    const encodedSuccess = btoa(showSuccessMessage.toString());
+    const encodedErrors = btoa(JSON.stringify(errors));
+    return Astro.redirect(`/?s=${encodedSuccess}&e=${encodedErrors}#contact`);
   }
 
 }
