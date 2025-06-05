@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^8.1.4",
-    "astro": "^5.8.1"
+    "@types/nodemailer": "^6.4.17",
+    "astro": "^5.8.1",
+    "nodemailer": "^7.0.3"
   }
 }
