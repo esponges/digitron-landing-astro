@@ -34,7 +34,7 @@ if (Astro.request.method === 'POST') {
   try {
     const data = await Astro.request.formData();
     
-    const response = await fetch('/api/contact', {
+    const response = await fetch(`${Astro.url.origin}/api/contact`, {
       method: 'POST',
       body: data,
     });
