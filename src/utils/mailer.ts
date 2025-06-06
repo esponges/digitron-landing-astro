@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 const transporter = nodemailer.createTransport({
   host: import.meta.env.SMTP_HOST,
   port: Number(import.meta.env.SMTP_PORT),
-  secure: import.meta.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+  secure: true, // true for 465, false for other ports
   auth: {
     user: import.meta.env.SMTP_USER,
     pass: import.meta.env.SMTP_PASS,
