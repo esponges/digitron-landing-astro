@@ -8,8 +8,6 @@ const contactSchema = z.object({
   message: z.string().min(1, "Please enter a message.")
 });
 
-type ContactInput = z.infer<typeof contactSchema>;
-
 export const contact = {
   async POST({ request }: APIContext) {
     try {

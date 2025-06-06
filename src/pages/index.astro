@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import ProductShowcase from '../components/ProductShowcase.astro';
 import ContactSection from '../components/ContactSection.astro';
 import { trackPageView } from './analytics.js';
+import { POST } from './api/contact';
 
 trackPageView();
 
@@ -32,12 +33,10 @@ let status = 200;
 
 if (Astro.request.method === 'POST') {
   try {
-    const data = await Astro.request.formData();
+    // const data = await Astro.request.formData();
     
-    const response = await fetch(`${Astro.url.origin}/api/contact`, {
-      method: 'POST',
-      body: data,
-    });
+    // provide the request context using Astro.request
+    const response = await POST(Astro);
 
     const result = await response.json();
 
