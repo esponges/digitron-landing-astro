@@ -2,7 +2,7 @@
 import contactData from '../data/contact.json';
 ---
 
-<header>
+<header id="main-header">
   <div class="header-container">
     <div class="logo">
       <img src="/images/digitron_logo.png" alt="Digitrion Copiadoras Logo" class="logo-image" />
@@ -20,6 +20,31 @@ import contactData from '../data/contact.json';
   </div>
 </header>
 
+<script>
+  let lastScroll = window.scrollY;
+  const header = document.getElementById('main-header');
+  const MIN_SCROLL = 50; // Only hide header after scrolling this many pixels
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    
+    if (currentScroll <= MIN_SCROLL) {
+      header!.style.transform = 'translateY(0)';
+      return;
+    }
+
+    if (currentScroll > lastScroll) {
+      // Scrolling down
+      header!.style.transform = 'translateY(-100%)';
+    } else {
+      // Scrolling up
+      header!.style.transform = 'translateY(0)';
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>
+
 <style>
   header {
     position: fixed;
@@ -31,7 +56,8 @@ import contactData from '../data/contact.json';
     padding: 0.75rem 2rem;
     box-shadow: var(--shadow-sm);
     z-index: 1000;
-    transition: all 0.3s ease;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
   }
 
   header:hover {
