@@ -2,127 +2,20 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ProductShowcase from '../components/ProductShowcase.astro';
-import ContactSection from '../components/ContactSection.astro';
+import ContactForm from '../components/ContactForm';
 import { trackPageView } from './analytics.js';
-import { POST } from './api/contact';
 
 trackPageView();
 
-// Parse URL parameters with base64 decode
-const url = new URL(Astro.request.url);
-const successParam = url.searchParams.get('s');
-const errorsParam = url.searchParams.get('e');
-
-// Decode base64 parameters
-let showSuccessMessage = false;
-let errors = { name: '', email: '', message: '' };
-
-if (successParam) {
-  showSuccessMessage = atob(successParam) === 'true';
-}
-
-if (errorsParam) {
-  try {
-    errors = JSON.parse(atob(errorsParam));
-  } catch (e) {
-    console.error('Error decoding parameters:', e);
-  }
-}
-
-let status = 200;
-
-if (Astro.request.method === 'POST') {
-  try {
-    // const data = await Astro.request.formData();
-    
-    // provide the request context using Astro.request
-    const response = await POST(Astro);
-
-    const result = await response.json();
-
-    if (!response.ok) {
-      showSuccessMessage = false;
-      status = response.status;
-      if (result.errors) {
-        errors = result.errors;
-      } else {
-        errors.name = result.message || 'There was an error submitting the form. Please try again later.';
-      }
-    } else {
-      showSuccessMessage = true;
-      // Track the submission if needed
-      // trackFormSubmission(Object.fromEntries(data));
-    }
-  } catch (error) {
-    console.error('Error submitting form:', error);
-    showSuccessMessage = false;
-    status = 500;
-    errors.name = 'There was an error submitting the form. Please try again later.';
-  } finally {
-    // Base64 encode parameters before redirect
-    const encodedSuccess = btoa(showSuccessMessage.toString());
-    const encodedErrors = btoa(JSON.stringify(errors));
-    return Astro.redirect(`/?s=${encodedSuccess}&e=${encodedErrors}#contact`);
-  }
-}
-
-Astro.response.status = status;
+// No server-side form handling needed as it's now handled by the React component
 ---
 <Layout>
   <Hero />
   <ProductShowcase />
-  <ContactSection />
   <section class="contact-section" id="contact">
     <div class="container">
       <h2 class="section-title">Contact Us</h2>
-      {showSuccessMessage && (
-        <div class="feedback-message success-message">
-          Thank you for your message! We will get back to you soon.
-        </div>
-      )}
-      <form class="contact-form" method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            required 
-            aria-required="true"
-          />
-          {errors.name && <p class="error-text">{errors.name}</p>}
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            required 
-            aria-required="true"
-          />
-          {errors.email && <p class="error-text">{errors.email}</p>}
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input 
-            type="tel" 
-            id="phone" 
-            name="phone"
-          />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea 
-            id="message" 
-            name="message" 
-            required 
-            aria-required="true"
-          ></textarea>
-          {errors.message && <p class="error-text">{errors.message}</p>}
-        </div>
-        <button type="submit" class="submit-button">Submit</button>
-      </form>
+      <ContactForm client:load />
     </div>
   </section>
 </Layout>

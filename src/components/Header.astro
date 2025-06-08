@@ -28,6 +28,7 @@ import contactData from '../data/contact.json';
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
     
+    // not enough scroll to hide the header in either direction
     if (currentScroll <= MIN_SCROLL) {
       header!.style.transform = 'translateY(0)';
       return;
