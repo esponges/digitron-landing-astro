@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import { getErrorMessage } from '../utils/misc';
+import './contact-form.css';
 
 interface FormData {
   name: string;
